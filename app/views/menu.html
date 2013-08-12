@@ -1,0 +1,51 @@
+<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="MenuCtrl">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Brew Everywhere</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#"><i class="icon icon-home"></i> Home</a></li>
+                    <li><a href="#/about">About</a></li>
+                    <li><a href="#/contact">Contact</a></li>
+                    <li class="dropdown" ng-show="brewerIsAdmin()">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Utility
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/adjuncts">Adjuncts</a></li>
+                            <li><a href="#/equipment">Equipment</a></li>
+                            <li><a href="#/fermentables">Fermentables</a></li>
+                            <li><a href="#/hops">Hops</a></li>
+                            <li><a href="#/mashprofiles">Mash Profiles</a></li>
+                            <li><a href="#/styles">Styles</a></li>
+                            <li><a href="#/waterprofiles">Water Profiles</a></li>
+                            <li><a href="#/yeast">Yeast</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-show="brewerLoggedIn()">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            My Stuff
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/myprofile">Profile</a></li>
+                            <li><a href="#/myrecipes">Recipes</a></li>
+                            <li><a href="#/mycalendar">Calendar</a></li>
+                            <li><a href="#/mybrewlog">Brew Log</a></li>
+                            <li><a href="#/myequipment">Equipment</a></li>
+                            <li><a href="#/myinventory">Inventory</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span ng-include="'views/login.html'"></span>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
