@@ -33,7 +33,7 @@ exports.config = {
   // Spec patterns are relative to the current working directly when
   // protractor is called.
   specs: [
-    'test/scenarios/*_scenario.js',
+    './test/scenarios/*_scenario.js',
   ],
 
   // ----- Capabilities to be passed to the webdriver instance.
@@ -47,7 +47,7 @@ exports.config = {
 
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:9000',
+  baseUrl: 'http://localhost:8000/index.html',
 
   // ----- Options to be passed to minijasminenode.
   jasmineNodeOpts: {
