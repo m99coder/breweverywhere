@@ -9,7 +9,7 @@ describe('Brew Everywhere Home Page', function(){
 
         ptor.findElement(protractor.By.binding("Welcome, {{currentBrewer.FirstName}}")).
             getText().then(function(text) {
-                expect(text).toEqual('Welcome, ');
+                expect(text).toEqual('');
             });
     }, 10000);
 });

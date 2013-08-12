@@ -12,7 +12,7 @@ exports.config = {
   seleniumServerJar: './selenium/selenium-server-standalone-2.34.0.jar',
   // The port to start the selenium server on, or null if the server should
   // find its own unused port.
-  seleniumPort: null,
+  seleniumPort: 4444,
   // Chromedriver location is used to help the selenium standalone server
   // find chromedriver. This will be passed to the selenium jar as
   // the system property webdriver.chrome.driver. If null, selenium will
@@ -28,7 +28,7 @@ exports.config = {
   sauceKey: null,
 
   // The address of a running selenium server.
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
@@ -42,12 +42,14 @@ exports.config = {
   // and
   // https://code.google.com/p/selenium/source/browse/javascript/webdriver/capabilities.js
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'phantomjs.binary.path': 'node_modules/karma-phantomjs-launcher/node_modules/phantomjs/bin/phantomjs'
+
   },
 
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:8000/index.html',
+  baseUrl: 'http://localhost:9000/',
 
   // ----- Options to be passed to minijasminenode.
   jasmineNodeOpts: {
