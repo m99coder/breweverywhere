@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('breweverywhereApp')
-    .constant('MONGOLAB_CONFIG',{API_KEY:'50a70bf4e4b039251d28b93b', DB_NAME:'breweverywhere'})
+    .constant('MONGOLAB_CONFIG',{API_KEY:'50a70bf4e4b039251d28b93b', DB_NAME:'breweverywhere_backup'})
     .factory('AdjunctResource',function ($mongolabResourceHttp) {
         return $mongolabResourceHttp('adjuncts');
     })
