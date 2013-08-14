@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('breweverywhereApp', ['mongolabResourceHttp'])
+angular.module('breweverywhereApp', ['mongolabResourceHttp', 'ui.bootstrap'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
