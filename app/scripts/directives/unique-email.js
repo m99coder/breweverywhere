@@ -1,12 +1,23 @@
 'use strict';
 
 angular.module('breweverywhereApp')
-  .directive('uniqueEmail', function () {
-    return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the uniqueEmail directive');
-      }
-    };
-  });
+    .directive('uniqueEmail', ['BrewerResource', function (BrewerResource) {
+        return {
+            require: 'ngModel',
+            link: function (scope, elm, attrs, ctrl) {
+                ctrl.$parsers.unshift(function (viewValue) {
+                    BrewerResource.query({"Email": viewValue}).then(function(value){
+                        if (value.length === 0) {
+                            // it is valid
+                            ctrl.$setValidity('uniqueEmail', true);
+                            return viewValue;
+                        } else {
+                            // it is invalid, return undefined (no model update)
+                            ctrl.$setValidity('uniqueEmail', false);
+                            return undefined;
+                        }
+                    });
+                });
+            }
+        };
+    }]);
