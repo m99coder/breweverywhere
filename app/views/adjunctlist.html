@@ -1,1 +1,19 @@
-<p>This is the adjunct-list view.</p>
+<div class="row span12" ng-controller="AdjunctListCtrl">
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Use For</th>
+            <th>Notes</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="adjunct in adjuncts | startFrom:((currentPage - 1) * pageSize) | limitTo:pageSize">
+                <td>{{ adjunct.Name }}</td>
+                <td>{{ adjunct.Type }}</td>
+                <td>{{ adjunct.UseFor }}</td>
+                <td>{{ adjunct.Notes }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination rotate="false" num-pages="noOfPages" current-page="currentPage" max-size="maxSize" class="pagination-small" boundary-links="true"></pagination>
+</div>

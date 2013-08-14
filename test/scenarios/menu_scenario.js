@@ -31,6 +31,14 @@ describe('Menu', function () {
                 expect(text).toContain('My Stuff');
             });
 
-    }, 10000)
+    }, 10000);
+
+    it('should navigate to the adjuncts page', function(){
+        ptor = protractor.getInstance();
+        ptor.findElement(protractor.By.xpath('/html/body/div[1]/div/div/div/div/ul/li[2]/a')).click();
+        ptor.findElement(protractor.By.linkText('Adjuncts')).click();
+        expect(ptor.getCurrentUrl()).toContain('#/adjuncts');
+
+    }, 10000);
 
 });
