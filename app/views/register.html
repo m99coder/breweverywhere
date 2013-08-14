@@ -55,7 +55,7 @@
         </div>
         <div class="control-group">
             <label class="control-label" for="ConfirmPassword">Confirm Password </label>
-            <input class="input-large" id="ConfirmPassword" name="ConfirmPassword" type="password" ng-model="confirmpassword" required>
+            <input class="input-large" id="ConfirmPassword" name="ConfirmPassword" type="password" ng-model="confirmpassword" required must-equal="password">
         </div>
         <div ng-show="registerForm.ConfirmPassword.$error.required && registerForm.ConfirmPassword.$dirty">
             <p><i class="icon icon-warning-sign"></i>Please ensure your passwords match</p>
