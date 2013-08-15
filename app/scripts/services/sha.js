@@ -20,7 +20,7 @@ angular.module('breweverywhereApp')
                 utf8encode = (typeof utf8encode == 'undefined') ? true : utf8encode;
 
                 // convert string to UTF-8, as SHA only deals with byte-streams
-                if (utf8encode) msg = Utf8.encode(msg);
+                if (utf8encode) msg = utf8encode.encode(msg);
 
                 // constants [§4.2.1]
                 var K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
