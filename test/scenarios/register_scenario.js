@@ -36,12 +36,6 @@ describe('Register User', function () {
 
         var timeHack = new Date();
         ptor.findElement(protractor.By.input('brewer.UserName')).sendKeys('lavinjj');
-        ptor.waitForAngular();
-        ptor.findElement(protractor.By.input('brewer.FirstName')).sendKeys('Test');
-        ptor.findElement(protractor.By.input('brewer.LastName')).sendKeys('User');
-        ptor.findElement(protractor.By.input('brewer.Email')).sendKeys('test_' + timeHack.valueOf().toString() + '@nomail.com');
-        ptor.findElement(protractor.By.input('password')).sendKeys(timeHack.valueOf().toString());
-        ptor.findElement(protractor.By.input('confirmpassword')).sendKeys(timeHack.valueOf().toString());
         ptor.findElement(protractor.By.name('registerBtn')).isEnabled().then(function(value){
             expect(value).toBe(false);
         })

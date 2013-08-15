@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('breweverywhereApp')
-    .controller('RegisterCtrl', ['$scope', '$location', 'BrewerResource', function ($scope, $location, BrewerResource) {
+    .controller('RegisterCtrl', ['$scope', '$location', 'BrewerResource', 'sha', function ($scope, $location, BrewerResource, sha) {
         $scope.brewer = new breweverywhere.Brewer();
         $scope.password = "";
         $scope.confirmpassword = "";
@@ -10,7 +10,7 @@ angular.module('breweverywhereApp')
             var brewer = new BrewerResource($scope.brewer);
             brewer.DateJoined = new Date();
 
-            brewer.Password = Sha1.hash($scope.password + brewer.DateJoined.valueOf().toString());
+            brewer.Password = sha.hash($scope.password + brewer.DateJoined.valueOf().toString());
             brewer.$save(function (brewer) {
                 $location.path('/');
             });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('breweverywhereApp')
-  .service('authenticate', ['$http', '$rootScope', '$window', 'BrewerResource', function authentication($http, $rootScope, $window, BrewerResource) {
+  .service('authenticate', ['$http', '$rootScope', '$window', 'BrewerResource', 'sha', function authentication($http, $rootScope, $window, BrewerResource, sha) {
     // AngularJS will instantiate a singleton by calling "new" on this function
         var authenticate = {
             // data members
@@ -17,7 +17,7 @@ angular.module('breweverywhereApp')
 
                     var brewer = brewers[0];
 
-                    var passwordHash = Sha1.hash(password + Date.parse(brewer.DateJoined).valueOf().toString());
+                    var passwordHash = sha.hash(password + Date.parse(brewer.DateJoined).valueOf().toString());
 
                     if (passwordHash !== brewer.Password) {
                         $window.alert("Invalid password.")
