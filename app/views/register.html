@@ -1,8 +1,9 @@
-<div class="row-fluid" >
-    <form name="registerForm" method="post" class="form-horizontal" >
+<div class="row-fluid">
+    <form name="registerForm" method="post" class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="UserName">User Name </label>
-            <input class="input-large" id="UserName" name="UserName" type="text" required ng-model="brewer.UserName" unique-username >
+            <input class="input-large" id="UserName" name="UserName" type="text" ng-model="brewer.UserName"
+                   unique-user-name required>
         </div>
         <div ng-show="registerForm.UserName.$error.required && registerForm.UserName.$dirty">
             <p><i class="icon icon-warning-sign"></i>Please enter a user name</p>
@@ -12,21 +13,22 @@
         </div>
         <div class="control-group">
             <label class="control-label" for="FirstName">First Name </label>
-            <input class="input-large" id="FirstName" name="FirstName" type="text" required ng-model="brewer.FirstName">
+            <input class="input-large" id="FirstName" name="FirstName" type="text" ng-model="brewer.FirstName" required>
         </div>
         <div ng-show="registerForm.FirstName.$error.required && registerForm.FirstName.$dirty">
             <p><i class="icon icon-warning-sign"></i>Please provide a first name</p>
         </div>
         <div class="control-group">
             <label class="control-label" for="LastName">Last Name </label>
-            <input class="input-large" id="LastName" name="LastName" type="text" required ng-model="brewer.LastName">
+            <input class="input-large" id="LastName" name="LastName" type="text" ng-model="brewer.LastName" required>
         </div>
         <div ng-show="registerForm.LastName.$error.required && registerForm.LastName.$dirty">
             <p><i class="icon icon-warning-sign"></i>Please provide a last name</p>
         </div>
         <div class="control-group">
             <label class="control-label" for="Email">Email </label>
-            <input class="input-large" id="Email" name="Email" type="text" required ng-model="brewer.Email" unique-email >
+            <input class="input-large" id="Email" name="Email" type="email" ng-model="brewer.Email" unique-email
+                   required>
         </div>
         <div ng-show="registerForm.Email.$error.required && registerForm.Email.$dirty">
             <p><i class="icon icon-warning-sign"></i>Please provide a valid email address</p>
@@ -55,14 +57,19 @@
         </div>
         <div class="control-group">
             <label class="control-label" for="ConfirmPassword">Confirm Password </label>
-            <input class="input-large" id="ConfirmPassword" name="ConfirmPassword" type="password" ng-model="confirmpassword" required must-equal="password">
+            <input class="input-large" id="ConfirmPassword" name="ConfirmPassword" type="password"
+                   ng-model="confirmpassword" must-equal="password" required>
         </div>
         <div ng-show="registerForm.ConfirmPassword.$error.required && registerForm.ConfirmPassword.$dirty">
+            <p><i class="icon icon-warning-sign"></i>Please confirm your password</p>
+        </div>
+        <div ng-show="registerForm.ConfirmPassword.$error.mustEqual && registerForm.ConfirmPassword.$dirty">
             <p><i class="icon icon-warning-sign"></i>Please ensure your passwords match</p>
         </div>
         <div class="control-group">
-            <input type="submit" title="Save" ng-click="save()" ng-disabled="registerForm.$invalid" class="btn btn-large" ></input>
-            <a href="#/" class="btn btn-large">Cancel</a>
+            <input name="registerBtn" type="submit" title="Save" ng-click="register()" ng-disabled="registerForm.$invalid"
+                   class="btn btn-large btn-primary"></input>
+            <a href="#/" name="cancelBtn" class="btn btn-large btn-danger">Cancel</a>
         </div>
     </form>
 </div>

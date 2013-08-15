@@ -9,15 +9,15 @@ angular.module('breweverywhereApp')
 
                 function validateEqual(myValue, otherValue) {
                     if (myValue === otherValue) {
-                        ctrl.$setValidity('equal', true);
+                        ctrl.$setValidity('mustEqual', true);
                     } else {
-                        ctrl.$setValidity('equal', false);
+                        ctrl.$setValidity('mustEqual', false);
                     }
                     return myValue;
                 }
 
                 scope.$watch(attrs.validateEquals, function (otherModelValue) {
-                    ctrl.$setValidity('equal', ctrl.$viewValue === otherModelValue);
+                    ctrl.$setValidity('mustEqual', ctrl.$viewValue === otherModelValue);
                 });
 
                 ctrl.$parsers.push(function (viewValue) {
